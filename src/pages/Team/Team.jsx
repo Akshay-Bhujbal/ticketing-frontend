@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import axiosInstance from '../utils/axios';
+import axiosInstance from '../../utils/axios';
 import styles from './Team.module.css'
 import { FaEdit, FaTrash } from 'react-icons/fa';
 

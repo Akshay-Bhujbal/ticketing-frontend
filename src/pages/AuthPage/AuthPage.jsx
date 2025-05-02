@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import {useLocation, Link, useNavigate} from 'react-router-dom'
-import axiosInstance from '../utils/axios';
+import axiosInstance from '../../utils/axios';
 import styles from './AuthPage.module.css'
 import formimg from '../../assets/images/formimg.png'
 import applogo from '../../assets/images/applogo.png'

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import axiosInstance from '../utils/axios';
+import axiosInstance from '../../utils/axios';
 import styles from './Dashboard.module.css';
 
 const Dashboard = () => {
