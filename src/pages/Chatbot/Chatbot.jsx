@@ -4,7 +4,6 @@ import chatIcon from '../../assets/images/chaticon.png'
 import enterIcon from '../../assets/images/enter.png';
 
 
-
 const SupportChat = () => {
   const [messages, setMessages] = useState([]);
   const [query, setQuery] = useState('');
@@ -45,17 +44,18 @@ const SupportChat = () => {
 
     try {
       const token = localStorage.getItem('token');
-
-      const res = await fetch(`${API_URL}/api/tickets`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${token}`,
-        },
-        body: JSON.stringify(ticketPayload)
-      });
-
-      if (res.ok) {
+    
+      const res = await axiosInstance.post(
+        '/api/tickets',
+        ticketPayload,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+    
+      if (res.status === 200 || res.status === 201) {
         setMessages(prev => [...prev, {
           type: 'system',
           text: " Ticket raised successfully. We'll contact you soon."
@@ -67,10 +67,15 @@ const SupportChat = () => {
           text: " Failed to raise ticket."
         }]);
       }
+    
     } catch (err) {
       console.error(err);
+      setMessages(prev => [...prev, {
+        type: 'system',
+        text: " Something went wrong. Please try again later."
+      }]);
     }
-  };
+    
 
   return (
     <div className={styles.chatWrapper}>
