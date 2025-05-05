@@ -75,7 +75,7 @@ const SupportChat = () => {
         text: " Something went wrong. Please try again later."
       }]);
     }
-    
+  }  
 
   return (
     <div className={styles.chatWrapper}>
