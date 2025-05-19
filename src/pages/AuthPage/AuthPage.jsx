@@ -45,7 +45,7 @@ const AuthPage = () => {
     }
 
     try {
-      const res = await axiosInstance.post('http://localhost:5000/api/auth/signup', signupData);
+      const res = await axiosInstance.post('https://ticketing-backend-j76t.onrender.com/api/auth/signup', signupData);
       console.log(res.data);
       alert('Signup successful! Please login.');
       navigate('/auth?mode=login');
@@ -58,7 +58,7 @@ const AuthPage = () => {
   const handleLoginSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axiosInstance.post('http://localhost:5000/api/auth/login', {email: username, password: loginpassword});
+      const res = await axiosInstance.post('https://ticketing-backend-j76t.onrender.com/api/auth/login', {email: username, password: loginpassword});
       console.log(res.data)
 
       localStorage.setItem('token', res.data.token);
